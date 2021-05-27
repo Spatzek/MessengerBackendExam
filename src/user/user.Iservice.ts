@@ -1,6 +1,7 @@
-import User from './user.entity';
+import User from './entities/user.entity';
 
 export const IUserServiceProvider = 'IUserServiceProvider';
 export interface IUserService {
-  getUser(message: number): Promise<User>;
+  getUser(username: string, password: string): Promise<User>;
+  createUser(username: string, password: string): Promise<User>;
 }

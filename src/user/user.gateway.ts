@@ -19,7 +19,20 @@ export class UserGateway {
   async handleGetUserEvent(@MessageBody() message: object): Promise<void> {
     try {
       console.log(message);
-      const user = await this.userService.getUser(3);
+      // @ts-ignore
+      const user = await this.userService.getUser(message.username, message.password);
+      console.log(user);
+      this.server.emit('getUser', user);
+    } catch (e) {
+      this.server.error(e.message);
+    }
+  }
+  @SubscribeMessage('createUser')
+  async handleCreateUserEvent(@MessageBody() message: object): Promise<void> {
+    try {
+      console.log(message);
+      // @ts-ignore
+      const user = await this.userService.createUser(message.username, message.password);
       console.log(user);
       this.server.emit('getUser', user);
     } catch (e) {
