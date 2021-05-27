@@ -16,9 +16,10 @@ export class UserGateway {
   ) {}
   @WebSocketServer() server;
   @SubscribeMessage('getUser')
-  async handleGetUserEvent(@MessageBody() message: number): Promise<void> {
+  async handleGetUserEvent(@MessageBody() message: object): Promise<void> {
     try {
-      const user = await this.userService.getUser(message);
+      console.log(message);
+      const user = await this.userService.getUser(3);
       console.log(user);
       this.server.emit('getUser', user);
     } catch (e) {
