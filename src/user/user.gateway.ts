@@ -4,7 +4,6 @@ import {
   WebSocketGateway,
   WebSocketServer,
 } from '@nestjs/websockets';
-import { Socket } from 'socket.io';
 import { Inject } from '@nestjs/common';
 import { IUserService, IUserServiceProvider } from './user.Iservice';
 
