@@ -17,10 +17,10 @@ export class UserGateway {
   @SubscribeMessage('getUser')
   async handleGetUserEvent(@MessageBody() message: object): Promise<void> {
     try {
-      console.log(message);
+
       // @ts-ignore
       const user = await this.userService.getUser(message.username, message.password);
-      console.log(user);
+
       this.server.emit('getUser', user);
     } catch (e) {
       this.server.error(e.message);
@@ -29,10 +29,10 @@ export class UserGateway {
   @SubscribeMessage('createUser')
   async handleCreateUserEvent(@MessageBody() message: object): Promise<void> {
     try {
-      console.log(message);
+
       // @ts-ignore
       const user = await this.userService.createUser(message.username, message.password);
-      console.log(user);
+
       this.server.emit('getUser', user);
     } catch (e) {
       this.server.error(e.message);

@@ -15,14 +15,15 @@ export class RoomService implements IRoomService {
 
   async getRoom(id: number): Promise<Room> {
     return await this.roomRepository.findOne({
-      id: id,
+      user_id : id,
     });
   }
 
   async createRoom(id: number): Promise<any> {
     console.log(id);
     const room = {
-      id,
+      room_id : id,
+      user_id : id
     };
     const newPost = await this.roomRepository.create(room);
     await this.roomRepository.save(newPost);

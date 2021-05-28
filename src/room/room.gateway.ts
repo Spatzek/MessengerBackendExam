@@ -31,7 +31,7 @@ export class RoomGateway {
     try {
       console.log(message);
       // @ts-ignore
-      const room = await this.roomService.createUser(message.id);
+      const room = await this.roomService.createRoom(message.id);
       console.log(room);
       this.server.emit('getRoom', room);
     } catch (e) {
