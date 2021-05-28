@@ -14,7 +14,6 @@ export class RoomService implements IRoomService {
   ) {}
 
   async getRoom(id: number): Promise<Room> {
-
     return await this.roomRepository.findOne({
       id: id,
     });
