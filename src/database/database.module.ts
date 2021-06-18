@@ -17,12 +17,7 @@ import User from '../user/entities/user.entity';
         database: configService.get('POSTGRES_DB'),
         entities: [User],
         synchronize: true,
-        ssl: true,
-        extra: {
-          ssl: {
-            rejectUnauthorized: false,
-          },
-        },
+
       }),
     }),
   ],
