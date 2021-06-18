@@ -29,7 +29,6 @@ export class UserGateway {
   @SubscribeMessage('createUser')
   async handleCreateUserEvent(@MessageBody() message: object): Promise<void> {
     try {
-
       // @ts-ignore
       const user = await this.userService.createUser(message.username, message.password);
 
