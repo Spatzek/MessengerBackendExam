@@ -20,15 +20,21 @@ export class UserService implements IUserService {
     });
   }
 
+  // This method is the create user method. We get the username and password.
   async createUser(username: string, password: string): Promise<any> {
-    console.log(username, password );
+
+    // We create the user object by populating the username, email and password.
+    // Later on, on a future iteration of the app. Email will be custom inserted as well. For now we are setting the email as the username,
     const user = {
       username,
       email: username,
       password
     };
+    // We save the user in the database and get a user object back.
     const newPost = await this.userRepository.create(user);
     await this.userRepository.save(newPost);
+
+    // We send the newly created user object back to the user gateway.
     return newPost;
   }
 }
