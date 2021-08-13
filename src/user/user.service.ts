@@ -3,7 +3,6 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import User from './entities/user.entity';
 // @ts-ignore
-import UserDTO from './entities/userDTO';
 import { IUserService } from './user.Iservice';
 
 @Injectable()
@@ -28,7 +27,7 @@ export class UserService implements IUserService {
     const user = {
       username,
       email: username,
-      password
+      password,
     };
     // We save the user in the database and get a user object back.
     const newPost = await this.userRepository.create(user);

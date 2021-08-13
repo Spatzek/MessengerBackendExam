@@ -1,12 +1,10 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 class Room {
   @PrimaryGeneratedColumn()
   public room_id: number;
-
   @Column()
-  public user_id: number;
+  public name: string;
 }
-
 export default Room;
