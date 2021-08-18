@@ -18,13 +18,12 @@ export class UserGateway {
   @SubscribeMessage('getUser')
   async handleGetUserEvent(@MessageBody() message: UserDTO): Promise<void> {
     try {
-
       // @ts-ignore
       const user = await this.userService.getUser(
         message.username,
         message.password,
       );
-
+      console.log(user);
       this.server.emit('getUser', user);
     } catch (e) {
       this.server.error(e.message);
@@ -39,7 +38,7 @@ export class UserGateway {
         message.username,
         message.password,
       );
-
+      console.log(user);
       // We send a response back to the frontend. We title the response 'getUser' and attach the user object to it.
       this.server.emit('getUser', user);
     } catch (e) {

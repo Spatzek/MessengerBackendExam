@@ -4,11 +4,15 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import * as Joi from '@hapi/joi';
 import { UserModule } from './user/user.module';
+import { RoomModule } from "./room/room.module";
+import { GroupModule } from "./group/group.module";
 
 @Module({
   imports: [
     ChatModule,
     UserModule,
+    GroupModule,
+    RoomModule,
     ConfigModule.forRoot({
       validationSchema: Joi.object({
         POSTGRES_HOST: Joi.string().required(),

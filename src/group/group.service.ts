@@ -12,10 +12,8 @@ export class GroupService implements IGroupService {
     private groupRepository: Repository<Group>,
   ) {}
 
-  async getGroup(id: number): Promise<Group> {
-    return await this.groupRepository.findOne({
-      group_id: id,
-    });
+  async getGroup(): Promise<Group[]> {
+    return await this.groupRepository.find();
   }
 
   async createGroup(name: string): Promise<Group> {

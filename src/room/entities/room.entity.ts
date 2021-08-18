@@ -6,5 +6,7 @@ class Room {
   public room_id: number;
   @Column()
   public name: string;
+  @Column("int", { array: true })
+  public list_of_active_users: number[];
 }
 export default Room;

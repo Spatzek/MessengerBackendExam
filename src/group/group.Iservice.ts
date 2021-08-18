@@ -2,7 +2,7 @@ import Group from './entities/group.entity';
 
 export const IGroupServiceProvider = 'IGroupServiceProvider';
 export interface IGroupService {
-  getGroup(id: number): Promise<Group>;
+  getGroup(): Promise<Group[]>;
 
   createGroup(name: string): Promise<Group>;
 

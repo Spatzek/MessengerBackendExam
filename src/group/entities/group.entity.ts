@@ -6,7 +6,7 @@ class Group {
   public group_id: number;
   @Column()
   public group_name: string;
-  @Column()
-  public list_of_rooms: Array<number>;
+  @Column("int", { array: true })
+  public list_of_rooms: number[];
 }
 export default Group;

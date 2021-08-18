@@ -20,7 +20,7 @@ export class GroupGateway {
     try {
       console.log(message);
       // @ts-ignore
-      const group = await this.groupService.getGroup(message.id);
+      const group = await this.groupService.getGroup();
       console.log(group);
       this.server.emit('getGroup', group);
     } catch (e) {

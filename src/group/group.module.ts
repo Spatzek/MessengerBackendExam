@@ -15,4 +15,4 @@ import { GroupGateway } from './group.gateway';
     },
   ],
 })
-export class RoomModule {}
+export class GroupModule {}
